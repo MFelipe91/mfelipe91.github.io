@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mario Busqués · Portafolio</title>
+<meta name="description" content="Mario Felipe Busqués Araya · Ingeniero de Ejecución en Informática. Ciberseguridad (SOC, gestión de vulnerabilidades, hardening), QA Automation (Selenium, Pytest, Postman) e infraestructura TI. La Serena, Chile.">
+<meta property="og:title" content="Mario Busqués · Ciberseguridad, QA Automation e Infraestructura TI">
+<meta property="og:description" content="SOC Home Lab con Wazuh y MITRE ATT&CK, framework de QA con Selenium y CI, 31 pruebas de API con Postman y más de 8 años en TI.">
+<style>
+:root{
+  --bg:#f7f8fb; --surface:#ffffff; --ink:#14213d; --muted:#4a5568; --line:#dfe3ec;
+  --navy:#0b2545; --accent:#3446a0; --accent-soft:#e8ebf8; --ok:#1d7a52; --on-accent:#ffffff;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0d1424; --surface:#131c30; --ink:#e7ecf6; --muted:#a6b0c4; --line:#26314a;
+         --navy:#dbe4ff; --accent:#8fa2ff; --accent-soft:#1c2747; --ok:#5fd3a0; --on-accent:#0d1424; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",Calibri,system-ui,-apple-system,Roboto,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.brand{font-weight:700;color:var(--navy);letter-spacing:.2px}
+nav a{margin-left:18px;color:var(--muted);font-size:.95rem} nav a:hover{color:var(--accent)}
+@media (max-width:640px){ nav{display:none} }
+.hero{padding:64px 0 40px}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:0 0 6px;color:var(--navy)}
+.role{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:600;color:var(--accent);margin:0 0 14px}
+.lead{font-size:1.15rem;color:var(--muted);max-width:720px;margin:0 0 22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 26px;padding:0;list-style:none}
+.chips li{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:4px 10px;font-size:.88rem}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;font-weight:600;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--on-accent)} .btn.primary:hover{text-decoration:none;filter:brightness(1.08)}
+.btn.ghost{color:var(--accent);background:transparent} .btn.ghost:hover{text-decoration:none;background:var(--accent-soft)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:40px 0 8px}
+@media (max-width:760px){ .stats{grid-template-columns:repeat(2,1fr)} }
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.stat b{display:block;font-size:1.6rem;color:var(--navy);line-height:1.1}
+.stat span{font-size:.85rem;color:var(--muted)}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-size:1.05rem;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy);margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:760px){ .grid{grid-template-columns:1fr} }
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column}
+.card h3{margin:0 0 4px;font-size:1.12rem;color:var(--navy)}
+.card .tag{font-size:.78rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.card p{margin:0 0 10px;color:var(--muted)}
+.card ul{margin:0 0 12px;padding-left:18px} .card li{margin-bottom:4px}
+.card .link{margin-top:auto;font-weight:600}
+.job{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.job:last-child{border-bottom:0}
+@media (max-width:640px){ .job{grid-template-columns:1fr;gap:4px} }
+.job .when{color:var(--muted);font-size:.92rem}
+.job h3{margin:0;font-size:1.05rem;color:var(--navy)} .job .org{color:var(--accent);font-weight:600}
+.job ul{margin:8px 0 0;padding-left:18px}
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:760px){ .skills{grid-template-columns:1fr} }
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.skill b{color:var(--navy)} .skill div{color:var(--muted);font-size:.95rem}
+.certs{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.certs li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.badge{font-size:.8rem;font-weight:700;padding:2px 8px;border-radius:999px}
+.badge.done{color:var(--ok);border:1px solid var(--ok)} .badge.prep{color:var(--muted);border:1px solid var(--line)}
+footer{padding:40px 0 60px;border-top:1px solid var(--line);color:var(--muted)}
+.contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <span class="brand">Mario Busqués</span>
+  <nav><a href="#proyectos">Proyectos</a><a href="#experiencia">Experiencia</a><a href="#habilidades">Habilidades</a><a href="#contacto">Contacto</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>Mario Felipe Busqués Araya</h1>
+    <p class="role">Analista de Ciberseguridad y QA Automation · Infraestructura TI</p>
+    <p class="lead">Ingeniero de Ejecución en Informática con más de 8 años en tecnología. Monitoreo y triage de alertas con Wazuh, gestión de vulnerabilidades con Nessus, hardening, automatización de pruebas con Selenium, Pytest y Postman, y automatización de procesos con Python, PowerShell y n8n.</p>
+    <ul class="chips">
+      <li>Wazuh · Sysmon</li><li>MITRE ATT&amp;CK</li><li>Nessus · CVSS · EPSS</li><li>Selenium · Pytest</li><li>Postman · API REST</li><li>GitHub Actions</li><li>Linux</li><li>Python · PowerShell · Bash</li>
+    </ul>
+    <div class="cta">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/mariofelipebusques" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/MFelipe91" rel="noopener">GitHub</a>
+    </div>
+    <div class="stats" aria-label="Cifras">
+      <div class="stat"><b>181</b><span>hallazgos de Nessus priorizados por CVSS y EPSS</span></div>
+      <div class="stat"><b>7</b><span>detecciones mapeadas a MITRE ATT&amp;CK</span></div>
+      <div class="stat"><b>31</b><span>pruebas de API con Postman (técnicas ISTQB)</span></div>
+      <div class="stat"><b>+20</b><span>redes escolares diseñadas (Aulas Conectadas)</span></div>
+    </div>
+  </div>
+
+  <section id="proyectos">
+    <h2>Proyectos</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="tag">Ciberseguridad · SOC</div>
+        <h3>SOC Home Lab</h3>
+        <p>Laboratorio público y documentado con evidencia.</p>
+        <ul>
+          <li>SIEM Wazuh con telemetría Sysmon y 7 casos de detección mapeados a MITRE ATT&amp;CK.</li>
+          <li>Regla de detección propia de nivel 12 y emulación de adversario con Atomic Red Team.</li>
+          <li>Nessus: 181 hallazgos priorizados por CVSS y EPSS.</li>
+          <li>Triage de alertas con IA local (en desarrollo).</li>
+        </ul>
+        <a class="link" href="https://github.com/MFelipe91/soc-home-lab" rel="noopener">Ver repositorio →</a>
+      </article>
+      <article class="card">
+        <div class="tag">QA Automation · CI</div>
+        <h3>QA Enterprise Banking Portfolio</h3>
+        <p>Framework de automatización de pruebas web sobre ParaBank.</p>
+        <ul>
+          <li>Selenium WebDriver, Pytest y Page Object Model.</li>
+          <li>Ejecución en CI con GitHub Actions.</li>
+          <li>Transferencias, valores límite y fondos insuficientes, más pruebas negativas de seguridad (inyección SQL e invalidación de sesión).</li>
+        </ul>
+        <a class="link" href="https://github.com/MFelipe91/qa-enterprise-banking-portfolio" rel="noopener">Ver repositorio →</a>
+      </article>
+      <article class="card">
+        <div class="tag">API Testing</div>
+        <h3>QA Portfolio · API con Postman</h3>
+        <p>31 pruebas de API contra GitHub y FakeStore: autenticación Bearer, rate limits, seguridad, rendimiento y reglas de negocio.</p>
+        <ul>
+          <li>Casos diseñados con técnicas ISTQB.</li>
+          <li>Defecto real documentado: 44 s de respuesta frente a un SLA de 5 s.</li>
+        </ul>
+        <a class="link" href="https://github.com/MFelipe91/qa-portfolio-mario-busques" rel="noopener">Ver repositorio →</a>
+      </article>
+      <article class="card">
+        <div class="tag">Desarrollo móvil</div>
+        <h3>701-ready</h3>
+        <p>App móvil propia en React Native y TypeScript para preparar la certificación CompTIA Security+ SY0-701.</p>
+        <a class="link" href="https://github.com/MFelipe91/701-ready" rel="noopener">Ver repositorio →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <h2>Experiencia</h2>
+    <div class="job">
+      <div class="when">Mar 2019 – hoy</div>
+      <div>
+        <h3>Especialista TI · Soporte, QA y Ciberseguridad · <span class="org">TECKWARE SpA</span></h3>
+        <ul>
+          <li>Auditorías de ciberseguridad y hardening (accesos, servicios expuestos, firewall y MFA) con hallazgos priorizados por riesgo.</li>
+          <li>Soporte técnico por servicio a una cartera de 2 empresas y 5 pymes de la región.</li>
+          <li>Desarrollo de sistemas y sitios web probados con Selenium y Pytest; pruebas de APIs REST con Postman.</li>
+          <li>Redes LAN y Wi-Fi, Microsoft 365 y Google Workspace; implementación TI de una empresa de ingeniería del sector minero.</li>
+          <li>Automatización con n8n, Python y PowerShell (respaldos programados).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">2017 – hoy (por temporadas)</div>
+      <div>
+        <h3>Analista Técnico de Redes y Jefe de Laboratorios · <span class="org">Universidad de La Frontera (MINEDUC)</span></h3>
+        <ul>
+          <li>Aulas Conectadas: planificación, levantamiento y diseño de las redes de más de 20 establecimientos (Wi-Fi, VLAN, PoE), con documentación as-built.</li>
+          <li>END-FID y CPEIP: preparación de 10 a 15 laboratorios por temporada y capacitación de examinadores y supervisores.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">Jun 2022 – 2025</div>
+      <div>
+        <h3>Desarrollo Web y Móvil · Responsable de QA y Seguridad · <span class="org">Xplendev</span></h3>
+        <ul>
+          <li>Pruebas funcionales y de regresión antes de cada release, regresiones automatizadas con Selenium.</li>
+          <li>Pruebas de APIs REST de pasarelas de pago con Postman.</li>
+          <li>Auditorías de seguridad y protección de paneles con 2FA, roles y respaldos.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="job">
+      <div class="when">2019 · 2017</div>
+      <div>
+        <h3>Experiencia previa</h3>
+        <ul>
+          <li>Soporte Técnico y Redes · Universidad Católica del Norte (2019).</li>
+          <li>Desarrollo y Soporte TI · Clínica Elqui (2017): aplicación web de trazabilidad de biopsias; práctica profesional aprobada con nota 7,0.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <div class="skill"><b>Ciberseguridad</b><div>Wazuh (SIEM) · Sysmon · MITRE ATT&amp;CK · Nessus · CVSS y EPSS · OWASP Top 10 · Burp Suite · Hardening</div></div>
+      <div class="skill"><b>QA y testing</b><div>Selenium WebDriver · Pytest · Page Object Model · Postman · GitHub Actions · Técnicas ISTQB · Jira</div></div>
+      <div class="skill"><b>Sistemas y redes</b><div>Linux · Windows · Microsoft 365 · Google Workspace · LAN, Wi-Fi, VLAN, PoE · Firewall</div></div>
+      <div class="skill"><b>Desarrollo y automatización</b><div>Python · PowerShell · Bash · n8n · JavaScript y TypeScript · React y Next.js · SQL · Git</div></div>
+    </div>
+  </section>
+
+  <section id="certificaciones">
+    <h2>Formación y certificaciones</h2>
+    <ul class="certs">
+      <li><span><b>Ingeniero de Ejecución en Informática</b> · Instituto Profesional Santo Tomás, La Serena</span><span class="badge done">Titulado 2020</span></li>
+      <li><span><b>Google Cybersecurity Professional Certificate</b> · Google</span><span class="badge done">2025</span></li>
+      <li><span><b>AI Fluency · Claude Code in Action</b> · Anthropic Academy</span><span class="badge done">2026</span></li>
+      <li><span><b>CompTIA Security+ (SY0-701)</b></span><span class="badge prep">En preparación</span></li>
+      <li><span><b>ISTQB Certified Tester Foundation Level (CTFL v4.0)</b></span><span class="badge prep">En preparación</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer id="contacto"><div class="wrap">
+  <h2>Contacto</h2>
+  <p>La Serena, Chile · Disponible para trabajo remoto y para traslado a Santiago u otras regiones.</p>
+  <div class="contact">
+    <a class="btn primary" href="mailto:mariofelipebusques@gmail.com">mariofelipebusques@gmail.com</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/mariofelipebusques" rel="noopener">LinkedIn</a>
+    <a class="btn ghost" href="https://github.com/MFelipe91" rel="noopener">GitHub</a>
+  </div>
+</div></footer>
+</body>
+</html>
